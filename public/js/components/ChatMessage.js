@@ -3,9 +3,19 @@ export default{
     props: ['message'],
 
     template: `
-    <section>
+    <article class="chat-messages" :class="{ 'other-messages' : matchedID }">
         <h2>{{ message.name }} says:</h2>
         <p>{{ message.content }}</p>
-    </section>
-    `
+    </article>
+    `,
+
+    data(){
+        return{
+            message: 'Hello:) from the template',
+            // every time an incoming message arrives, check against the user ID to see if this is ours.
+            // if it IS, apply a css class to indicate that its ours
+            //if its ISn't, apply a different CSS class to make that obvious
+            matchedID: this.$parent.socketID == this.message.id  //this.message points to main.js   true or false
+        }
+    }
 }
