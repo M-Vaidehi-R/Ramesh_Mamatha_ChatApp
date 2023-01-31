@@ -21,7 +21,8 @@ const vm = createApp({
  return {
     socketID: '',
     message: '',
-    messages: []
+    messages: [],
+    nickname: ''
  }
     },
 
