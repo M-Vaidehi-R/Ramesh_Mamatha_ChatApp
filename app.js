@@ -39,4 +39,11 @@ io.on('connection', (socket) => {
     //step 2: show everyone whta was just sent through (send the mesage to everyone connected to the service) 
     io.emit('new_message', { message: msg});
   })
+
+  // listen for a typing event and broadcast to all
+  socket.on('user_typing', function(user){  //catch the custom event
+    console.log(user);
+
+    io.emit('typing', {currentlytyping: user })  //  throw/show it back
+  })
 });   

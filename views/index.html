@@ -18,7 +18,7 @@
             
         <form>
             <label for="message">Something to say?</label>
-            <textarea V-MODEL="message" id="textarea" class="message" autocomplete="off"></textarea>
+            <textarea @focus="catchTextFocus" V-MODEL="message" id="textarea" class="message" autocomplete="off"></textarea>
             <input @click.prevent="dispatchMessage" type="submit" value="Send">
         </form>
         </section>
